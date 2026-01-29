@@ -1,62 +1,166 @@
-﻿@model MeetingType
+﻿    <!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        background-color: #f4f7f6;
+        font-family: 'Inter', sans-serif;
+        color: #334155;
+    }
 
+    .breadcrumb-item a {
+        text-decoration: none;
+        color: #64748b;
+    }
 
-<div class="pagetitle">
-    <h1>Data Tables</h1>
-    <nav>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a>Meeting Type</a></li>
-            <li class="breadcrumb-item">Meeting Type List</li>
-            <li class="breadcrumb-item">Meeting Type Add/Edit</li>
-        </ol>
-    </nav>
-</div><!-- End Page Title -->
+    .breadcrumb-item.active {
+        color: #1e293b;
+        font-weight: 600;
+    }
 
-<div class="d-flex justify-content-end">
+    .card {
+        border: none;
+        border-radius: 1rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
 
-    <a asp-controller="MeetingType" asp-action="MeetingTypeAddEdit">
-        <button type="button" class="btn btn-primary mb-5">MeetingTypeAddEdit</button>
-    </a>
-</div>
+    .form-control {
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        border-color: #e2e8f0;
+    }
 
+        .form-control:focus {
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.1);
+            border-color: #0d6efd;
+        }
 
-@* MeetingMember TABLE *@
-<div class="container-fluid card p-3">
-    <form asp-controller="MeetingType" asp-action="Create" method="post">
+    .btn-primary {
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+    }
 
-        <!-- Meeting Member Name -->
-        <div class="row justify-content-center">
-            <div class="form-group col-md-4 m-2">
-                <label for="MeetingTypeName" class="m-2 text-center">Meeting Type</label>
-                <input type="text"
-                       class="form-control"
-                       id="MeetingType"
-                       name="MeetingType"
-                       placeholder="Enter Meeting Type"
-                       asp-for="Meetingtype">
-                <span asp-validation-for="Meetingtype" class="text-danger"></span>
+    .btn-light-alt {
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        color: #64748b;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+
+        .btn-light-alt:hover {
+            background-color: #f1f5f9;
+            color: #334155;
+            border-color: #cbd5e1;
+        }
+
+    .input-group-text {
+        background-color: #f8fafc;
+        border-color: #e2e8f0;
+        color: #94a3b8;
+    }
+
+    .text-danger {
+        font-size: 0.825rem;
+    }
+</style>
+<body class="py-4 py-md-5">
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="row mb-4 align-items-center">
+            <div class="col-12">
+                <h1 class="h3 fw-bold mb-1">Meeting Type Management</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="#">Meeting Type</a></li>
+                        <li class="breadcrumb-item"><a href="#">Meeting Type List</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Meeting Type Add/Edit</li>
+                    </ol>
+                </nav>
             </div>
         </div>
 
-        <!-- Meeting Description -->
+        <!-- Main Form Card -->
         <div class="row justify-content-center">
-            <div class="form-group col-md-4 m-2 text-start">
-                <label for="MeetingDescription" class="m-2">Remarks</label>
-                <textarea id="MeetingDescription"
-                          name="MeetingDescription"
-                          class="form-control"
-                          placeholder="Enter the meeting description" asp-for="Remarks"></textarea>
+            <div class="col-lg-7">
+                <div class="card p-4 p-md-5">
+                    <div class="text-center mb-5">
+                        <div class="bg-primary bg-opacity-10 text-primary d-inline-flex align-items-center justify-content-center rounded-circle mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa-solid fa-tags fs-3"></i>
+                        </div>
+                        <h2 class="h4 fw-bold">Type Classification</h2>
+                        <p class="text-muted small">Define and categorize different types of meetings for better organization.</p>
+                    </div>
 
-                <span asp-validation-for="Remarks" class="text-danger"></span>
+                    <form asp-controller="MeetingType" asp-action="Create" method="post">
+                        <!-- Meeting Type Name -->
+                        <div class="mb-4">
+                            <label for="MeetingType" class="form-label fw-semibold">Meeting Type <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-bookmark"></i>
+                                </span>
+                                <input type="text"
+                                       id="MeetingType"
+                                       name="MeetingType"
+                                       class="form-control"
+                                       placeholder="e.g. Board Meeting, Scrum, Workshop"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Remarks/Description -->
+                        <div class="mb-4">
+                            <label for="MeetingDescription" class="form-label fw-semibold">Remarks</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </span>
+                                <textarea id="MeetingDescription"
+                                          name="MeetingDescription"
+                                          class="form-control"
+                                          placeholder="Additional details or purpose of this category..."
+                                          rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <hr class="my-4 opacity-50">
+
+                        <!-- Action Buttons -->
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary w-100 d-flex align-items-center justify-content-center gap-2">
+                                    <i class="fa-solid fa-floppy-disk"></i>
+                                    Save Category
+                                </button>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="button" class="btn btn-light-alt w-100">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer Info -->
+                <div class="mt-4 px-2 d-flex gap-3 text-muted">
+                    <i class="fa-solid fa-circle-info mt-1"></i>
+                    <p class="small mb-0">
+                        Meeting types help in filtering reports and managing calendar color-coding. Ensure types are distinct and descriptive.
+                    </p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <!-- Buttons -->
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary m-3">Add</button>
-            <button type="button" class="btn btn-secondary m-3">Edit</button>
-        </div>
-
-    </form>
-</div>
-
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
