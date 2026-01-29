@@ -1,0 +1,90 @@
+﻿<div class="pagetitle">
+    <h1>Data Tables</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Meeting Member</a></li>
+            <li class="breadcrumb-item">Meeting Member List</li>
+        </ol>
+    </nav>
+</div>
+
+<div class="d-flex justify-content-end">
+
+<a asp-controller="MeetingMember" asp-action="MeetingMemberAddEdit">
+    <button type="button" class="btn btn-primary mb-5">MeetingMemberAddEdit</button>
+
+</a> 
+</div>
+
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-center">
+            <h5 class="card-title">@ViewBag.Title Table</h5>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <p>All The Record of The <code>@ViewBag.Title </code></p>
+        </div>
+        <!-- Bordered Table -->
+
+        <div class="container col-sm-3 d-flex justify-content-end ">
+            <input class="form-control" id="myInput" type="text" placeholder="Search here">
+        </div>
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Serial No.</th>
+                    <th scope="col">Member ID</</th>
+                    <th scope="col">Member Name</</th>
+                    <th scope="col">Meeting Member </</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>601</td>
+                    <td>Meet</</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>602</td>
+                    <td>Haresh</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>603</td>
+                    <td>Vivek</td>
+                    <td>65</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>604</td>
+                    <td>Dhaval</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>605</td>
+                    <td>Sagar</td>
+                    <td>43</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- End Bordered Table -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+        </script>

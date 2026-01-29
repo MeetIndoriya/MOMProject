@@ -1,0 +1,88 @@
+﻿<div class="pagetitle">
+    <h1>Data Tables</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a>Meetings</a></li>
+            <li class="breadcrumb-item">Meetings List</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<div class="d-flex justify-content-end">
+<a asp-controller="Meetings" asp-action="MeetingsAddEdit">
+    <button type="button" class="btn btn-primary mb-5">MeetingsAddEdit</button>
+
+</a> 
+</div>
+<div class="card">
+    <div class="card-body">
+
+        <div class="d-flex justify-content-center">
+            <h5 class="card-title display-4">@ViewBag.Title Table</h5>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <p>All The Record of The <code>@ViewBag.Title</code></p>
+        </div>
+
+        <div class="container col-sm-3 d-flex justify-content-end ">
+            <input class="form-control" id="myInput" type="text" placeholder="Search here">
+        </div>
+        <!-- Bordered Table -->
+        <table class="table table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th scope="col">Serial No.</th>
+                    <th scope="col">Meeting ID</</th>
+                    <th scope="col">Meeting Name</</th>
+                    <th scope="col">Meeting Venue</</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+                <tr>
+                    <th scope="row">1</th>
+                    <td>401</td>
+                    <td>Weekly Sync</</td>
+                    <td>Audi - 10</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>402</td>
+                    <td>Formal Meeting</</td>
+                    <td>Audi - 3</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>403</td>
+                    <td>Planning Meeting</td>
+                    <td>Audi - 6</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>404</td>
+                    <td>Weekly Sync</td>
+                    <td>Audi - 5</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>405</td>
+                    <td>Informal Meeting</</td>
+                    <td>Audi - 1</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- End Bordered Table -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+        </script>
