@@ -1,6 +1,6 @@
 ﻿
 <div class="pagetitle">
-    <h1>Data Tables</h1>
+    <h1>Staff</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>Staff</a></li>
@@ -10,9 +10,9 @@
 </div><!-- End Page Title -->
 <div class="d-flex justify-content-end">
 
-<a asp-controller="Staff" asp-action="StaffAddEdit">
-    <button type="button" class="btn btn-primary mb-5">StaffAddEdit</button>
-</a>
+    <a asp-controller="Staff" asp-action="StaffAddEdit">
+        <button type="button" class="btn btn-primary mb-5">StaffAddEdit</button>
+    </a>
 </div>
 
 
@@ -21,11 +21,11 @@
     <div class="card-body">
 
         <div class="d-flex justify-content-center">
-        <h5 class="card-title">@ViewBag.Title Table</h5>
+        <h5 class="card-title">Staff  Table</h5>
         </div>
 
         <div class="d-flex justify-content-center">
-        <p>All The Record of The <code>@ViewBag.Title</code></p>
+        <p>All The Record of The <code>Staff List</code></p>
         </div>
         <!-- Bordered Table -->
 
@@ -74,6 +74,8 @@
                 </tr>
             </tbody>
         </table>
+     </div>
+</div>
         <!-- End Bordered Table -->
 
 

@@ -1,12 +1,16 @@
-﻿using MOMProject.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class MeetingType
+namespace MOMProject.Models
 {
-    [Required(ErrorMessage = "Meeting Type is Required")]
-    [Display(Name = "MeetingType")]
-    public string Meetingtype { get; set; }
+    public class MeetingType
+    {
+        public int MeetingTypeID { get; set; }
 
-    [Display(Name = "Remarks")]
-    public string Remarks { get; set; }
+        [Required(ErrorMessage = "Meeting Type is required")]
+        [StringLength(50, ErrorMessage = "Type name cannot exceed 50 characters")]
+        public string? MeetingTypeName { get; set; }
+
+        [StringLength(500)]
+        public string? Remarks { get; set; }
+    }
 }

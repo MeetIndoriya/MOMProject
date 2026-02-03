@@ -1,17 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MOMProject.Models;
 
-namespace MOMProject.Controllers
+public class MeetingMemberController : Controller
 {
-    public class MeetingMemberController : Controller
+    public IActionResult MeetingMemberList()
     {
-        public IActionResult MeetingMemberList()
-        {
-            ViewBag.Title = "Meeting Member";
-            return View();
-        }
-        public IActionResult MeetingMemberAddEdit()
-        {
-            return View();
-        }
+        return View();
+    }
+
+    public IActionResult MeetingMemberAddEdit() 
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult MeetingMemberAddEdit(MeetingMember model)
+    {
+        if (!ModelState.IsValid)
+            return View(model); 
+
+        return View("MeetingMemberList");  
     }
 }

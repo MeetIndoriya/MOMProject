@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MOMProject.Models;
 
 namespace MOMProject.Controllers
 {
@@ -12,6 +13,14 @@ namespace MOMProject.Controllers
         public IActionResult MeetingVenueAddEdit()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult MeetingVenueAddEdit(MeetingVenue model)
+        {
+            if (!ModelState.IsValid)
+                return View(model); 
+
+            return View("MeetingVenueList"); 
         }
     }
 }

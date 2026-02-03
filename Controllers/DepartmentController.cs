@@ -1,23 +1,30 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using MOMProject.Models;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace MOMProject.Controllers
 {
     public class DepartmentController : Controller
     {
+
         public IActionResult DepartmentList()
         {
-            ViewBag.Title = "Department";
-            Department department = new Department();
-            department.DeptId = 101;
-            department.DeptName = "Computer";
-            department.Hod = "Dr. Alex Johnson";
-            department.Location = "Building A, Level 3";
-            return View(department);
+            return View();
         }
         public IActionResult DepartmentAddEdit()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult DepartmentAddEdit(Department model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            return View("DepartmentList"); 
         }
     }
 }

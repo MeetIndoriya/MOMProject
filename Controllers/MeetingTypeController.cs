@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MOMProject.Models;
 
 namespace MOMProject.Controllers
 {
@@ -9,20 +10,19 @@ namespace MOMProject.Controllers
             ViewBag.Title = "Meeting Type";
             return View();
         }
+
         public IActionResult MeetingTypeAddEdit()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(MeetingType model)
+        public IActionResult MeetingTypeAddEdit(MeetingType model)
         {
-            if (ModelState.IsValid)
-            {
-                ViewBag.Message = "Meeting Type Registered Successfully";
-                //return View("Success");
-            }
-            return View("MeetingTypeList",model);
+            if (!ModelState.IsValid)
+                return View(model);  
+
+            return View("MeetingTypeList");
         }
 
     }

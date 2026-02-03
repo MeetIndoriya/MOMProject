@@ -4,14 +4,10 @@ namespace MOMProject.Models
 {
     public class Department
     {
-        public int DeptId { get; set; }
+        public int DepartmentID { get; set; }
 
-        [Required]
-        public string DeptName { get; set; }
-
-        [Required]
-        public string Hod { get; set; }
-
-        public string Location { get; set; }
+        [Required(ErrorMessage = "Department Name is required")]
+        [StringLength(100, ErrorMessage = "Department name cannot exceed 100 characters")]
+        public string? DepartmentName { get; set; }
     }
 }

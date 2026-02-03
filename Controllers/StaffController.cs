@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MOMProject.Models;
 
 namespace MOMProject.Controllers
 {
@@ -13,6 +14,13 @@ namespace MOMProject.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult StaffAddEdit(Staff model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
 
+            return View("StaffList"); 
+        }
     }
 }
