@@ -12,6 +12,11 @@ public class MeetingMember
     [StringLength(500)]
     public string? Remarks { get; set; }
 
+    public int MeetingId { get; set; }
+    public int StaffID { get; set; }
+
+    public int IsPresent { get; set; }
+
     public string? Created { get; set; }
 
     public string? Modified { get; set; }

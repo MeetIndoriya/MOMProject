@@ -5,6 +5,12 @@ namespace MOMProject.Controllers
 {
     public class MeetingTypeController : Controller
     {
+        private IConfiguration configuration;
+
+        public MeetingTypeController(IConfiguration _configuration)
+        {
+            configuration = _configuration;
+        }
         public IActionResult MeetingTypeList()
         {
             ViewBag.Title = "Meeting Type";

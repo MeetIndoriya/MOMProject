@@ -1,4 +1,5 @@
-﻿
+﻿@model List<Staff>
+
 <div class="pagetitle">
     <h1>Staff</h1>
     <nav>
@@ -41,37 +42,16 @@
                     <th scope="col">Staff Email </</th>
                 </tr>
             </thead>
-            <tbody id="myTable">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>501</td>
-                    <td>Meet Indoriya</</td>
-                    <td>meet@gmail.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>502</td>
-                    <td>Het Patel</</td>
-                    <td>het78@gmail.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>503</td>
-                    <td>Jeet Gajera</td>
-                    <td>jeetgaj13@gmail.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>504</td>
-                    <td>Vivek Galani </td>
-                    <td>vivek@123gmail.com</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>505</td>
-                    <td>Nimesh</td>
-                    <td>nimesh435gt@gmil.com</td>
-                </tr>
+            <tbody >
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.StaffID</td>
+                        <td>@item.StaffName</td>
+                        <td>@item.Created</td>
+                        <td>@item.Modified</td>
+                    </tr>
+                }
             </tbody>
         </table>
      </div>

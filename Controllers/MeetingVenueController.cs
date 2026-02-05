@@ -5,6 +5,12 @@ namespace MOMProject.Controllers
 {
     public class MeetingVenueController : Controller
     {
+        private IConfiguration configuration;
+
+        public MeetingVenueController(IConfiguration _configuration)
+        {
+            configuration = _configuration;
+        }
         public IActionResult MeetingVenueList()
         {
             ViewBag.Title = "Meeting Venue";

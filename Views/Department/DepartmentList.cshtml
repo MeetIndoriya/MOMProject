@@ -1,4 +1,6 @@
-﻿<div class="pagetitle">
+﻿@model List<Department>
+
+<div class="pagetitle">
     <h1>Department</h1>
     <nav>
         <ol class="breadcrumb">
@@ -33,22 +35,26 @@
         <table class="table table-bordered mt-5">
             <thead>
                 <tr>
-                    <th>Serial No.</th>
-                    <th>Department ID</th>
+                    <th>DepartmentID</th>
                     <th>Department Name</th>
-                    <th>Head of Department</th>
-                    <th>Location</th>
+                    <th>Created</th>
+                    <th>Modified</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>201</td>
-                    <td>CSE</td>
-                    <td>No</td>
-                    <td>AUDI - 10</td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.DepartmentID</td>
+                        <td>@item.DepartmentName</td>
+                        <td>@item.Created</td>
+                        <td>@item.Modified</td>
+                        <td>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
 

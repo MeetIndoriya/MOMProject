@@ -3,8 +3,15 @@ using MOMProject.Models;
 
 public class MeetingMemberController : Controller
 {
+    private IConfiguration configuration;
+
+    public MeetingMemberController(IConfiguration _configuration)
+    {
+        configuration = _configuration;
+    }
     public IActionResult MeetingMemberList()
     {
+        SP_MOM_MeetingMember_SELECTALL
         return View();
     }
 

@@ -12,5 +12,9 @@ namespace MOMProject.Models
 
         [StringLength(500)]
         public string? Remarks { get; set; }
+
+        public DateTime Created { get; set; }
+
+        public DateTime Modified { get; set; }
     }
 }

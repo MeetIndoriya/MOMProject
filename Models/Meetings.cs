@@ -13,8 +13,25 @@ namespace MOMProject.Models
         [DataType(DataType.Date)]
         public DateTime MeetingDate { get; set; }
 
+        public int MeetingVenueID { get; set; }
+
+        public int MeetingTypeID { get; set; }
+        public int DepartmentID { get; set; }
+        public string? MeetingVenue { get; set; }
         [Required(ErrorMessage = "Meeting Venue is required")]
-        public string? MeetingVenue { get; set; } 
+        public string? MeetingDescription { get; set; }
+
+        public string? DocumentPath { get; set; }
+
+        public DateTime Created { get; set; }
+
+        public DateTime Modified { get; set; }
+
+        public int IsCancelled { get; set; }
+
+        public DateTime CancellationDateTime { get; set; }
+
+        public string? CancellationReason { get; set; }
 
         [Required(ErrorMessage = "Meeting Type is required")]
         public string? MeetingType { get; set; } 
@@ -23,5 +40,7 @@ namespace MOMProject.Models
         public string? DepartmentName { get; set; } 
 
         public string? Remarks { get; set; } 
+
+
     }
 }

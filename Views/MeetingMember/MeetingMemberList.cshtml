@@ -40,37 +40,18 @@
                     <th scope="col">Meeting Member </</th>
                 </tr>
             </thead>
-            <tbody id="myTable">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>601</td>
-                    <td>Meet</</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>602</td>
-                    <td>Haresh</td>
-                    <td>45</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>603</td>
-                    <td>Vivek</td>
-                    <td>65</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>604</td>
-                    <td>Dhaval</td>
-                    <td>35</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>605</td>
-                    <td>Sagar</td>
-                    <td>43</td>
-                </tr>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.</td>
+                        <td>@item.</td>
+                        <td>@item.</td>
+                        <td>@item.</td>
+                        <td>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
         <!-- End Bordered Table -->

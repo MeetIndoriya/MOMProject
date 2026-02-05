@@ -9,5 +9,9 @@ namespace MOMProject.Models
         [Required(ErrorMessage = "Department Name is required")]
         [StringLength(100, ErrorMessage = "Department name cannot exceed 100 characters")]
         public string? DepartmentName { get; set; }
+        
+        public DateTime Created { get; set; }
+
+        public DateTime Modified { get; set; }
     }
 }
